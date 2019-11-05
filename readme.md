@@ -418,6 +418,10 @@ The browser platform always returns the boolean `status.canEnableLight` as `fals
 
 `status.canEnableLight` is camera specific, meaning it will return `false` if the camera in use does not have a flash.
 
+### Preview size and location
+
+You can change the viewport size and location with the method `setDimensions(x,y,width,height)`. All values are float and relative to percentage of screen (0-100)
+
 #### Using Status.authorized
 
 Both Electron and NW.js automatically provide authorization to access the camera (without user confirmation) to bundled applications. This difference can't be detected via an API this plugin can implement, so the `authorized` property on any returned Status objects will be `false` on startup, even when it should be `true`. You should adjust your code to assume that these platforms are always authorized. (ie: Skip "permission priming" on these platforms.)

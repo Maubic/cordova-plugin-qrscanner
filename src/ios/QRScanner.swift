@@ -318,6 +318,17 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
         self.getStatus(command)
     }
 
+    func setPos(_ command: CDVInvokedUrlCommand) {
+        print("Entering setPos");
+        let xPos = command.arguments[0] as! CGFloat;
+        let yPos = command.arguments[1] as! CGFloat;
+        let width = command.arguments[2] as! CGFloat;
+        let height = command.arguments[3] as! CGFloat;
+        self.cameraView.frame = CGRect(x: (UIScreen.main.bounds.width * (xPos))/100, y: (UIScreen.main.bounds.height * (yPos))/100, width: (UIScreen.main.bounds.width * (width))/100, height: (UIScreen.main.bounds.height * (height))/100);
+        self.cameraView.autoresizingMask = [.flexibleWidth, .flexibleHeight];
+        
+    }    
+
     // backCamera is 0, frontCamera is 1
 
     @objc func useCamera(_ command: CDVInvokedUrlCommand){

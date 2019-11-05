@@ -221,6 +221,11 @@ return {
       throw new Error('No callback provided to getStatus method.');
     }
     cordova.exec(doneCallback(callback), null, 'QRScanner', 'getStatus', []);
+  },
+  setDimensions: function(xPos, yPos, width, height, callback) {
+    cordova.exec(successCallback(callback), errorCallback(callback), 'QRScanner', 'setPos', [xPos, yPos, width, height]);
   }
+
+  
 };
 };
